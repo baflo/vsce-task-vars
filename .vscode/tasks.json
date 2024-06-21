@@ -1,0 +1,36 @@
+// See https://go.microsoft.com/fwlink/?LinkId=733558
+// for the documentation about the tasks.json format
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "watch",
+			"problemMatcher": "$tsc-watch",
+			"isBackground": true,
+			"presentation": {
+				"reveal": "never"
+			},
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "task name",
+			"command": "bash",
+			"args": ["-c", "echo ${input:variableID}"]
+			// ...
+		  }
+	],
+	"inputs": [
+		{
+			"id": "variableID",
+			"type": "command",
+			"command": "extension.commandvariable.js.expression",
+			"args": {
+				"expression": "vscode.window.tabGroups.all.find(g => g.isActive)?.tabs.find(t => t.isActive)"
+			}
+		  }
+	]
+}
